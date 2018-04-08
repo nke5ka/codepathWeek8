@@ -16,40 +16,40 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 
 ## Blue
 
-Vulnerability #1: __SQL Injection__
+### Vulnerability #1: __SQL Injection and Extra Bonus__
     By using ``` https://104.155.169.96/blue/public/salesperson.php?id=%27%20union%20select%201,(select%20concat(%222select%20database()%20is%20%22,%20(select%20database()))),(select%20concat(%22-----------------3select%20user()%20is%20%22,%20(select%20user()))),(select%20concat(%224select%20version()%20is%20%22,%20(select%20version()))),5%20--%20 ``` I can make the id query come back with some unioned table and database metadata - things an attacker should not have access to!
     
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/blue1.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/blue1.gif)
 
-Vulnerability #2: __Session Hijacking/Fixation__
+### Vulnerability #2: __Session Hijacking/Fixation__
     By using the built in session changing tool, I can steal the session ID from one user and login as them without credential checking.
     
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/blue2.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/blue2.gif)
 
 ## Green
 
-Vulnerability #1: __User Enumeration__
+### Vulnerability #1: __User Enumeration__
     Using logins that have a real username leads to a bolded error message, but logins using nonexistent username leads to an unbolded error message.
     
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/green1.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/green1.gif)
 
-Vulnerability #2: __Cross Site Scripting__
+### Vulnerability #2: __Cross Site Scripting__
     By using script alert, an attacker can add a comment which when viewed leads to execution of arbitrary javascript.
     
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/green2.gif)
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/green2b.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/green2.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/green2b.gif)
 
 ## Red
 
-Vulnerability #1: __Insecure Direct Object Reference__
+### Vulnerability #1: __Insecure Direct Object Reference__
     A non logged in user can access any salesperson by changing their ID - even ones not listed.
     
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/red1.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/red1.gif)
     
-Vulnerability #2: __Cross Site Request Forgery__
+### Vulnerability #2: __Cross Site Request Forgery__
     By accessing a hacker's page with the following html, a logged in user can unknowingly change values via post request to be the values the hacker desires.
     
-    ![](https://github.com/nke5ka/codepathWeek8/blob/master/red2.gif)
+![](https://github.com/nke5ka/codepathWeek8/blob/master/red2.gif)
     
 ```
 <html>
